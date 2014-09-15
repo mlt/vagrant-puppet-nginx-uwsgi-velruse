@@ -5,7 +5,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 domain = "example.co.uk"
 settings = {
-  :hostname => "myapp",
+  :hostname => "velruse",
   :box => "precise64",
   :ip => "192.168.33.10",
 }

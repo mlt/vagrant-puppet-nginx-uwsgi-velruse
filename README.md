@@ -1,4 +1,4 @@
-A puppet setup for a Flask app
+A puppet setup for a Velruse app
 ==============================================================================
 
 ```bash
@@ -8,11 +8,5 @@ A puppet setup for a Flask app
     vagrant provision
 ```
 
-Site should then be available over port 8080 at `http://localhost:8080/`.
-
-## TODO:
-
-- [x] Fix dependencies on current infrastructure like Vagrant #4
-- [ ] Move Python deps into a virtualenv (_maybe_) #1
-- [ ] Varnish #3
-- [ ] Postgres #2
+Site should then be available over port 8080 at `http://localhost:8080/login/google`.
+More info at http://velruse.readthedocs.org/en/latest/index.html .

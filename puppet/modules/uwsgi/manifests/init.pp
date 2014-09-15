@@ -11,8 +11,7 @@ class uwsgi {
         "die-on-term" => "",
         "logto" => "/var/log/uwsgi.log",
         "chdir" => "/var/www/${hostname}.${domain}/src",
-        "module" => "app",
-        "callable" => "app",
+        "paste" => "config:/var/www/velruse.ini",
     }
 
     package { "upstart":
@@ -38,12 +37,21 @@ class uwsgi {
         mode => "0755",
         require => User["www-data"],
     }
+    file { '/var/www/velruse.ini':
+        ensure => present,
+        owner => 'root',
+        group => 'root',
+        mode => '0644',
+        content => template('uwsgi/velruse.ini'),
+    }
     service { "uwsgi":
         ensure => running,
         provider => upstart,
         enable => true,
         hasrestart => false,
         hasstatus => false,
-        require => [File["/etc/init/uwsgi.conf"], File["/var/log/uwsgi.log"]],
+        require => [File['/etc/init/uwsgi.conf'],
+                    File['/var/log/uwsgi.log'],
+                    File['/var/www/velruse.ini']],
     }
 }
