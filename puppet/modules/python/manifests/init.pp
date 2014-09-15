@@ -7,7 +7,7 @@ class python {
 }
 
 class python::packages {
-    $apt = ['python-dev', 'build-essential', 'python-pip', ]
+    $apt = ['python-dev', 'build-essential', 'python-pip', 'python-redis', 'redis-server' ]
     $pip = ['velruse', 'Paste', ] # 'waitress', 'flask', ]
 
     package { $apt:
